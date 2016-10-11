@@ -110,7 +110,7 @@ final class OauthRawGcsService implements RawGcsService {
   private static final String X_GOOG_META = X_GOOG_PREFIX + "meta-";
   private static final String X_GOOG_CONTENT_LENGTH =  X_GOOG_PREFIX + "stored-content-length";
   private static final String X_GOOG_COPY_SOURCE = X_GOOG_PREFIX + "copy-source";
-  private static final String STORAGE_API_HOSTNAME = "storage.googleapis.com";
+  private static final String STORAGE_API_HOSTNAME = "192.168.101.182";
   public static final String USER_AGENT_PRODUCT = "AppEngine-Java-GCS";
   private static final HTTPHeader RESUMABLE_HEADER =
       new HTTPHeader(X_GOOG_PREFIX + "resumable", "start");
@@ -129,7 +129,7 @@ final class OauthRawGcsService implements RawGcsService {
 
   private static final int READ_LIMIT_BYTES = 31 * 1024 * 1024;
   public static final int WRITE_LIMIT_BYTES = 10_000_000;
-  private static final int CHUNK_ALIGNMENT_BYTES = 256 * 1024;
+  private static final int CHUNK_ALIGNMENT_BYTES = 5 * 1024 * 1024;
 
   /**
    * Token used during file creation.
@@ -193,7 +193,7 @@ final class OauthRawGcsService implements RawGcsService {
     String path = makePath(filename);
     try {
       StringBuilder url =
-          new StringBuilder().append(new URI("https", STORAGE_API_HOSTNAME, path, null));
+              new StringBuilder().append(new URI("http", null, STORAGE_API_HOSTNAME, 5000, path, null, null));
       if (queryStrings != null && !queryStrings.isEmpty()) {
         url.append('?');
         for (Map.Entry<String, String> entry : queryStrings.entrySet()) {

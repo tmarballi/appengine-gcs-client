@@ -17,7 +17,7 @@
     </license>
   </licenses>
   <properties>
-    <appengine.target.version>[1.8.9,2.0)</appengine.target.version>
+    <appengine.target.version>1.8.4</appengine.target.version>
   </properties>
   <prerequisites>
       <maven>3.1.0</maven>
@@ -58,7 +58,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>19.0-rc1</version>
+      <version>18.0</version>
     </dependency>
     <dependency>
       <groupId>joda-time</groupId>
