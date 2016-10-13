@@ -110,7 +110,8 @@ final class OauthRawGcsService implements RawGcsService {
   private static final String X_GOOG_META = X_GOOG_PREFIX + "meta-";
   private static final String X_GOOG_CONTENT_LENGTH =  X_GOOG_PREFIX + "stored-content-length";
   private static final String X_GOOG_COPY_SOURCE = X_GOOG_PREFIX + "copy-source";
-  private static final String STORAGE_API_HOSTNAME = "192.168.101.182";
+  private static final String APPSCALE_GCS_ENDPOINT = "APPSCALE_GCS_ENDPOINT";
+  private static final String STORAGE_API_HOSTNAME = System.getenv(APPSCALE_GCS_ENDPOINT);
   public static final String USER_AGENT_PRODUCT = "AppEngine-Java-GCS";
   private static final HTTPHeader RESUMABLE_HEADER =
       new HTTPHeader(X_GOOG_PREFIX + "resumable", "start");
